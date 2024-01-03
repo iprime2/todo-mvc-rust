@@ -5,7 +5,7 @@ pub struct UserCtx {
 	pub user_id: i64,
 }
 
-pub async fn utx_from_token(_db: &Db,token: &str) -> Result<UserCtx, Error> {
+pub async fn utx_from_token(_db: &Db, token: &str) -> Result<UserCtx, Error> {
 	// TODO: real validation needed
 	// for now, just parse to i64
 	match token.parse::<i64>() {
@@ -13,11 +13,11 @@ pub async fn utx_from_token(_db: &Db,token: &str) -> Result<UserCtx, Error> {
 		Err(_) => Err(Error::InvalidToken(token.to_string())),
 	}
 }
- 
+
 // region:    Error
 #[derive(ThisError, Debug)]
 pub enum Error {
 	#[error("Invalid Token {0}")]
 	InvalidToken(String),
 }
-// endregion: 
+// endregion: Error

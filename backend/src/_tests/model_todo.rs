@@ -13,7 +13,7 @@ async fn model_todo_create() -> Result<(), Box<dyn std::error::Error>> {
 		title: Some("test - model_todo_create 1".to_string()),
 		..Default::default()
 	};
- 
+
 	// -- ACTION
 	let todo_created = TodoMac::create(&db, &utx, data_fx.clone()).await?;
 

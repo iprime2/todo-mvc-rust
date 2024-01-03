@@ -41,6 +41,8 @@ async fn handle_rejection(err: Rejection) -> Result<impl Reply, Infallible> {
 	// Print to server side
 	println!("ERROR - {:?}", err);
 
+	// TODO - Call log API for capture and store
+
 	// Build user message
 	let user_message = match err.find::<WebErrorMessage>() {
 		Some(err) => err.typ.to_string(),

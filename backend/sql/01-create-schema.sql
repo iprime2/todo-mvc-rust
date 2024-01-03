@@ -12,6 +12,6 @@ CREATE TABLE todo (
   mid bigint, -- modifier user id
 	mtime timestamp with time zone,   
   title text NOT NULL,
-  status todo_status_enum DEFAULT 'open'
+  status todo_status_enum NOT NULL DEFAULT 'open'
 );
 ALTER SEQUENCE todo_id_seq RESTART WITH 1000;

@@ -1,6 +1,6 @@
 [package]
-name = "todo-mvc"
-version = "0.1.0"
+name = "todomvc"
+version = "0.0.1"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 
@@ -15,9 +15,8 @@ serde_derive = "1.0"
 # Web libs
 warp = "0.3"
 # DB Libs
-sqlx = { version = "0.7.3", features = [ "runtime-tokio-rustls", "postgres" ] }
-sqlb = "0.4.0"
-watch = "0.2.3"
+sqlx = { version = "0.6", features = [ "runtime-tokio-rustls", "postgres" ] }
+sqlb = "0.0.8"
 
 [dev-dependencies]
 anyhow = "1"

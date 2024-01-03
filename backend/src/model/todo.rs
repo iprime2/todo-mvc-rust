@@ -40,13 +40,12 @@ impl TodoMac {
 /// Todo Model Access Controller
 impl TodoMac {
 	pub async fn create(db: &Db, utx: &UserCtx, data: TodoPatch) -> Result<Todo, model::Error> {
-		let mut fields = data.all_fields();
-		println!("fields: {:?}", fields);
+		let mut fields = data.fields();
 		fields.push(("cid", utx.user_id).into());
 		let sb = sqlb::insert().table(Self::TABLE).data(fields).returning(Self::COLUMNS);
 
 		let todo = sb.fetch_one(db).await?;
-
+ 
 		Ok(todo)
 	}
 
@@ -62,7 +61,7 @@ impl TodoMac {
 	}
 
 	pub async fn update(db: &Db, utx: &UserCtx, id: i64, data: TodoPatch) -> Result<Todo, model::Error> {
-		let mut fields = data.all_fields();
+		let mut fields = data.fields();
 		// augment the fields with the cid/ctime
 		fields.push(("mid", utx.user_id).into());
 		fields.push(("ctime", Raw("now()")).into());
@@ -104,7 +103,8 @@ impl TodoMac {
 fn handle_fetch_one_result(
 	result: Result<Todo, sqlx::Error>,
 	typ: &'static str,
-	id: i64,) -> Result<Todo, model::Error> {
+	id: i64,
+) -> Result<Todo, model::Error> {
 	result.map_err(|sqlx_error| match sqlx_error {
 		sqlx::Error::RowNotFound => model::Error::EntityNotFound(typ, id.to_string()),
 		other => model::Error::SqlxError(other),

@@ -19,5 +19,5 @@ pub fn do_auth(db: Arc<Db>) -> impl Filter<Extract = (UserCtx,), Error = Rejecti
 				}
 				None => Err(Error::FailAuthMissingXAuth.into()),
 			}
-		}) 
+		})
 }
