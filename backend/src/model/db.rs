@@ -7,7 +7,7 @@ use std::time::Duration;
 const PG_HOST: &str = "localhost";
 const PG_ROOT_DB: &str = "postgres";
 const PG_ROOT_USER: &str = "postgres";
-const PG_ROOT_PWD: &str = "sushil0722";
+const PG_ROOT_PWD: &str = "postgres";
 // app db
 const PG_APP_DB: &str = "app_db";
 const PG_APP_USER: &str = "app_user";
