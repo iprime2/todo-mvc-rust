@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  rust-todo-mvc-db:
+    image: postgres:16
+    # restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=sushil0722
+      - POSTGRES_DB=nestjs
+    ports:
+      - 5438:5432
+    networks:
+      - sushil-networks
+networks:
+  sushil-networks:
