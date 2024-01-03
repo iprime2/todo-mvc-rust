@@ -1,10 +1,9 @@
 # Todo-MVC, Rust, Postgres, Docker, RealDom, Typescript, SQL, and Testing
-
-This is a Todo-MVC project built using Rust, Postgres, Docker, RealDom, Typescript, SQL, and Testing.
-
-## Description
-
 This project is a simple Todo-MVC application that allows users to create, update, and delete tasks. It uses a Rust backend with a Postgres database, and a Typescript frontend with RealDom for rendering. The project also includes SQL scripts for database setup and seed data.
+
+## Demo Video
+
+https://github.com/iprime2/todo-mvc-rust/assets/29702609/3ebbc401-7202-48b2-99c8-fb527829d193
 
 ## Prerequisites
 
