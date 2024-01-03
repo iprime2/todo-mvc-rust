@@ -20,9 +20,35 @@ To run the project locally, follow these steps:
 
 1. Clone the repository.
 2. Install Docker and Docker Compose (if not already installed).
-3. Run `docker-compose up` to start the Postgres database.
-4. Build and run the backend using Cargo: `cargo run`.
-5. Build and run the frontend using npm: `npm install` and `npm start`.
+3. Run below command to start the Postgres database.
+  ```
+  # Start the database
+  docker run --rm -p 5432:5432 -e "POSTGRES_PASSWORD=postgres" --name pg postgres:14
+
+  # optional psql (other terminal) 
+  docker exec -it -u postgres pg psql
+  ```
+4. Run below command to test the backend.
+  ```
+  cd backend
+  # Test for model
+  cargo watch -q -c -w src/ -x 'test model_ -- --test-threads=1 --nocapture'
+
+  # Test for web
+  cargo watch -q -c -w src/ -x 'test web_ -- --test-threads=1 --nocapture'
+  ```
+6. Build and run the frontend using npm:
+  ```
+  cd frontend
+  npm install
+
+  npm build -- -w
+  ```
+4. final! to start the application.
+  ```
+  cd backend
+  cargo watch -q -c -w src/ -x 'run -- ../frontend/web-folder'
+  ```
 
 ## Usage
 
