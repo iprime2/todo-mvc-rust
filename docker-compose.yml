@@ -5,8 +5,8 @@ services:
     # restart: always
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=sushil0722
-      - POSTGRES_DB=nestjs
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
     ports:
       - 5438:5432
     networks:

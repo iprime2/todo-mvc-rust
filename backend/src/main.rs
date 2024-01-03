@@ -10,7 +10,7 @@ mod security;
 mod web;
 
 const DEFAULT_WEB_FOLDER: &'static str = "web-folder/";
-const DEFAULT_WEB_PORT: u16 = 8080;
+const DEFAULT_WEB_PORT: u16 = 1312;
 
 #[tokio::main]
 async fn main(){
